@@ -1,23 +1,17 @@
-jsonschema is an implementation of the JSON Schema specification for Python.
+JsonDB is a pure java database that stores its data as Json Files.
 
->>> from jsonschema import validate
+A very small memory footprint, runs embedded within your java program.
 
->>> # A sample schema, like what we'd get from json.load()
->>> schema = {
-...     "type" : "object",
-...     "properties" : {
-...         "price" : {"type" : "number"},
-...         "name" : {"type" : "string"},
-...     },
-... }
+Provides APIs that are very similar and inspired by MongoDB.
 
->>> # If no exception is raised by validate(), the instance is valid.
->>> validate(instance={"name" : "Eggs", "price" : 34.99}, schema=schema)
+Provides a Apache JxPath based query system.
 
->>> validate(
-...     instance={"name" : "Eggs", "price" : "Invalid"}, schema=schema,
-... )                                   # doctest: +IGNORE_EXCEPTION_DETAIL
-Traceback (most recent call last):
-    ...
-ValidationError: 'Invalid' is not of type 'number'
+Visit http://jsondb.io for detailed information about Jsondb, Why Jsondb and Using Jsondb
+
+
+A Jsondb data file in its entirety is not a valid JSON string, hence you cannot edit the complete Jsondb data file in a standard JSON conscious text editor. This makes it difficult to manully edit the file if the schema is complex.
+
+However each row in a Jsondb data file (upto the LF) is expected to be a valid JSON document. This plugin when installed along with the Atom Editor can help to manually edit a Jsondb data file.
+
+Note: MongoDB import files have a similar problem with manual editing, this plugin can be used for those files or any similar files
 
